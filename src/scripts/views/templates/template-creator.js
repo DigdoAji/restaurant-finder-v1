@@ -134,15 +134,12 @@ const createSkeletonRestoTemplate = (count) => {
     template +=`
     <article class="card-item">
         <div class="contain-img-resto">
-          <picture>
-            <source type="image/jpeg" srcset="./images/placeholder-large.jpg">
             <img
                 class="card-item__thumbnail"
                 width="100%" height="350px" 
-                src="https://picsum.photos/id/666/800/450?grayscale" 
-                alt="skeleton"
+                src="./images/placeholder.png" 
+                alt="placeholder"
             />
-          </picture>
             <p class="city__top-left">Lorem ipsum</p>
         </div>
         <div class="card-item__content">

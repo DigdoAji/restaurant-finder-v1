@@ -15,6 +15,7 @@ var serviceWorkerOption = {
     "/icons/icon-96x96.png",
     "/icons/logo-brand.png",
     "/icons/star-rating.svg",
+    "/images/placeholder.png",
     "/logo-brand.png",
     "/index.html"
   ]
