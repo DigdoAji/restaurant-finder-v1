@@ -11,7 +11,7 @@ class HeroWeb extends HTMLElement {
             <img
                 width="100%" height="360px" 
                 src="../images/hero-image-small.jpg" 
-                alt="gambar hero website"
+                alt="hero website"
             />
           </picture>
         <div class="hero-text">
