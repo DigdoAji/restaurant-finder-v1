@@ -91,7 +91,7 @@ module.exports = {
         }),
       ],
     }),
-    new CleanWebpackPlugin(),
     new BundleAnalyzerPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };
