@@ -9,7 +9,7 @@ class NavWeb extends HTMLElement {
     <ul class="nav-logo-pos">
       <li>
         <img
-          src="../icons/logo-brand.png"
+          src="../images/logo-brand.png"
           class="logo-img"
           alt="logo website"
           width="35px"
