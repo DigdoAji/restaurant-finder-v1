@@ -7,9 +7,9 @@ class HeroWeb extends HTMLElement {
     this.innerHTML = `
         <div class="hero">
           <picture>
-            <source media="(max-width: 650px)" srcset="../images/hero/hero-image-small.jpg">
-            <source media="(min-width: 650px)" srcset="../images/hero/hero-image-medium.jpg">
-            <source media="(min-width: 1200px)" srcset="../images/hero/hero-image-large.jpg">
+            <source media="(max-width: 650px)" srcset="../images/hero/hero-image-small.jpg" type="image/jpeg">
+            <source media="(min-width: 650px)" srcset="../images/hero/hero-image-medium.jpg" type="image/jpeg">
+            <source media="(min-width: 1200px)" srcset="../images/hero/hero-image-large.jpg" type="image/jpeg">
             <img
                 width="100%" height="360px" 
                 src="../images/hero-image.jpg" 
