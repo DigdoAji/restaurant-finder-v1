@@ -170,7 +170,7 @@ const createSkeletonRestoTemplate = (count) => {
       <img
           class="card-item__thumbnail"
           src="${foodfact.imageURL}"
-          alt="Gambar ilustrasi makanan"
+          alt="ilustrasi makanan"
       />
   </div>
   <div class="card-item__content">
