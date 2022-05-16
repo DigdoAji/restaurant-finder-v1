@@ -1,6 +1,8 @@
 import RestaurantAPISource from '../../data/restaurantAPI-source';
 import fact from '../../data/FACT.json';
-import { createRestoItemTemplate, createFactItemTemplate, createLoadingText, createSkeletonRestoTemplate } from '../templates/template-creator';
+import {
+  createRestoItemTemplate, createFactItemTemplate, createLoadingText, createSkeletonRestoTemplate,
+} from '../templates/template-creator';
 
 const homeResto = {
   async render() {

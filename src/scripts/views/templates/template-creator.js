@@ -131,7 +131,7 @@ const createSkeletonRestoTemplate = (count) => {
   let template = '';
 
   for (let i = 0; i < count; i += 1) {
-    template +=`
+    template += `
     <article class="card-item">
         <div class="contain-img-resto">
             <img
@@ -160,11 +160,11 @@ const createSkeletonRestoTemplate = (count) => {
         </div>
     </article>
     `;
-    }
+  }
   return template;
-  };
+};
 
-  const createFactItemTemplate = (foodfact) => `
+const createFactItemTemplate = (foodfact) => `
   <article class="card-item">
   <div class="contain-img-fact">
       <img

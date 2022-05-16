@@ -129,7 +129,7 @@ header {
   position: relative;
 
   img {
-    background-color: #6bcb77;
+    background-color: $default-hero-color;
     filter: brightness(50%);
     display: flex;
     flex-direction: column;
