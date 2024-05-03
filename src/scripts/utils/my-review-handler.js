@@ -1,3 +1,5 @@
+import CONFIG from '../global/config';
+
 const MyReviewResto = (name, review) => {
   const reviewContainer = document.querySelector('#review');
   const optionDate = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -7,8 +9,8 @@ const MyReviewResto = (name, review) => {
             <div class="comment-item__content">
               <div class="comment-item__avatar">
                 <img
-                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                  class="img-avatar"
+                  src="${CONFIG.BASE_IMAGE_REVIEWS_URL}"
+                  class="img-avatar lazyload"
                   alt="avatar profile reviewer"
                 />
                 <div class="comment-item__title">

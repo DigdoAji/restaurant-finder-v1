@@ -8,8 +8,8 @@ const favoriteResto = {
       <div class="heading">
         <h1 class="heading-label">Favorites Restaurant</h1>
         <p class="heading-text">This is Your Favorites Restaurant</p>
-        <div class="load-text" id="isEmpty"></div>
         <div class="posts-explore" id="restaurants"></div>
+        <div class="load-text" id="isEmpty"></div>
       </div>
       </section>
       `;

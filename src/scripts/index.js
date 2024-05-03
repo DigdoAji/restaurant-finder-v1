@@ -1,11 +1,10 @@
-import '../styles/main.scss';
-import '../styles/responsive.scss';
 import 'regenerator-runtime';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
-import './component/nav-web';
-import './component/hero-web';
-import './component/foot-web';
+import './components/component';
+import '../styles/main.scss';
+import '../styles/responsive.scss';
+
 import App from './views/app';
 import swRegister from './utils/sw-register';
 

@@ -1,5 +1,5 @@
 import FavoriteRestoIdb from '../data/favoritesresto-idb';
-import { createFavoriteRestoButtonTemplate, createUnFavoriteRestoButtonTemplate } from '../views/templates/template-creator';
+import { createFavoritesButtonTemplate, createUnFavoritesButtonTemplate } from '../views/templates/template-creator';
 
 const FavoriteButtonInitiator = {
   async init({ favoriteButtonContainer, resto }) {
@@ -25,7 +25,7 @@ const FavoriteButtonInitiator = {
   },
 
   _renderLike() {
-    this._favoriteButtonContainer.innerHTML = createFavoriteRestoButtonTemplate();
+    this._favoriteButtonContainer.innerHTML = createFavoritesButtonTemplate();
 
     const FavButton = document.querySelector('#FavButton');
     FavButton.addEventListener('click', async () => {
@@ -35,7 +35,7 @@ const FavoriteButtonInitiator = {
   },
 
   _renderLiked() {
-    this._favoriteButtonContainer.innerHTML = createUnFavoriteRestoButtonTemplate();
+    this._favoriteButtonContainer.innerHTML = createUnFavoritesButtonTemplate();
 
     const FavButton = document.querySelector('#FavButton');
     FavButton.addEventListener('click', async () => {

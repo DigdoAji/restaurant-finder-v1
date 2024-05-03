@@ -17,6 +17,10 @@
   .nav-logo {
     font-size: 1.2rem;
   }
+
+  .hero-text {
+    font-size: 20px;
+  }
 }
 
 @media screen and (min-width: 500px) {
@@ -85,72 +89,9 @@
   .comment-item__description {
     font-size: 16px;
   }
-
-  .detail {
-    .detail__title {
-      grid-column-start: 1;
-      grid-column-end: 2;
-    }
-
-    .split-info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: 30px;
-    }
-
-    .detail__overview {
-      grid-column-start: 1;
-      grid-column-end: 2;
-    }
-  }
-
-  .btn-like {
-    padding: 14px 16px;
-    width: 180px;
-  }
 }
 
-@media screen and (min-width: 700px) {
-  .posts-explore,
-  .posts-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 24px;
-    grid-row-gap: 20px;
-  }
-
-  .nav {
-    padding: 0 26px;
-  }
-
-  .nav-bar {
-    margin-bottom: 1px;
-  }
-
-  .logo-img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .nav-logo {
-    font-size: 1.5rem;
-    margin: 12px 0 12px 10px;
-  }
-
-  .hero {
-    .hero-text {
-      h1 {
-        font-size: 34px;
-      }
-
-      p {
-        font-size: 24px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 768px) {
   .nav-bar {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
@@ -202,6 +143,55 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .posts-explore,
+  .posts-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 20px;
+  }
+
+  .nav {
+    padding: 0 26px;
+  }
+
+  .nav-bar {
+    margin-bottom: 1px;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-logo {
+    font-size: 1.5rem;
+    margin: 12px 0 12px 10px;
+  }
+
+  .hero {
+    .hero-text {
+      h1 {
+        font-size: 34px;
+      }
+
+      p {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .detail__resto {
+    grid-template-columns: 1.1fr 1fr;
+    justify-content: center;
+  }
+
+  .menu__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media screen and (max-width: 860px) {
   .nav-item {
     padding-left: 1rem;
@@ -211,6 +201,11 @@
       font-size: 18px;
     }
   }
+
+  .detail__info {
+    margin: 15px 0 !important;
+  }
+
 }
 
 @media screen and (min-width: 950px) {

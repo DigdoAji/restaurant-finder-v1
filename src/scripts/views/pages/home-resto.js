@@ -1,7 +1,11 @@
 import RestaurantAPISource from '../../data/restaurantAPI-source';
 import fact from '../../data/FACT.json';
 import {
-  createRestoItemTemplate, createFactItemTemplate, createLoadingText, createSkeletonRestoTemplate,
+  createRestoItemTemplate,
+  createFactItemTemplate,
+  createSkeletonRestoTemplate,
+  createLoadingText,
+  createAfterLoadingText,
 } from '../templates/template-creator';
 
 const homeResto = {
@@ -11,10 +15,10 @@ const homeResto = {
     <div class="heading">
       <h1 class="heading-label">Explore Restaurant</h1>
       <p class="heading-text">Let's Explore Restaurant in Your Area</p>
-      <div class="load-text" id="loading"></div>
       <div class="posts-explore" id="explore">
         ${createSkeletonRestoTemplate(6)}
       </div>
+      <div class="load-text" id="loading"></div>
     </div>
     </section>
 
@@ -36,12 +40,12 @@ const homeResto = {
 
     try {
       const exploreResto = await RestaurantAPISource.homeResto();
+      loadingContainer.setAttribute('style', 'display: none;');
       exploreResto.forEach((restaurant) => {
         exploreContainer.innerHTML += createRestoItemTemplate(restaurant);
       });
-      loadingContainer.style.display = 'none';
     } catch (err) {
-      loadingContainer.innerHTML = `<h2>ERROR! ${err}, Try to refresh the page!<h2>`;
+      loadingContainer.innerHTML = createAfterLoadingText(err);
     }
 
     const factResto = await fact.funfacts;

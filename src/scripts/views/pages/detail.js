@@ -1,6 +1,6 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantAPISource from '../../data/restaurantAPI-source';
-import { createRestoDetailTemplate, createLoadingText } from '../templates/template-creator';
+import { createRestoDetailTemplate, createLoadingText, createAfterLoadingText } from '../templates/template-creator';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 import MyReviewResto from '../../utils/my-review-handler';
 
@@ -25,6 +25,8 @@ const Detail = {
 
     try {
       const restaurantItem = await RestaurantAPISource.detailResto(url.id);
+      loadingContainer.setAttribute('style', 'display: none;');
+      detailContainer.scrollTop = 0;
       detailContainer.innerHTML = createRestoDetailTemplate(restaurantItem);
 
       await FavoriteButtonInitiator.init({
@@ -38,9 +40,8 @@ const Detail = {
           rating: restaurantItem.rating,
         },
       });
-      loadingContainer.style.display = 'none';
     } catch (err) {
-      loadingContainer.innerHTML = `<h2>Error: ${err}, Try to refresh the page!</h2>`;
+      loadingContainer.innerHTML = createAfterLoadingText(err);
     }
 
     const submitReview = document.querySelector('#submitReview');

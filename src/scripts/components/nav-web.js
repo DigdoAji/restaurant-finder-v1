@@ -11,14 +11,12 @@ class NavWeb extends HTMLElement {
         <img
           src="../images/logo-brand.png"
           class="logo-img"
-          alt="logo website"
-          width="35px"
-          height="35px"
+          alt="Icon Restaurant Finder"
         />
       </li>
       <li><h1 class="nav-logo">Restaurant Finder</h1></li>
     </ul>
-    <button class="menuHamburger" tabindex="0" id="hamburgerButton" aria-label="navigation">
+    <button class="menuHamburger" id="hamburgerButton">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
@@ -31,7 +29,7 @@ class NavWeb extends HTMLElement {
         <a href="#/favorites-page">Favorites</a>
       </li>
       <li class="nav-item">
-        <a href="https://www.linkedin.com/in/digdoajiasrowi/">About Us</a>
+        <a href="https://www.linkedin.com/in/digdoajiasrowi/" target="_blank" rel="noreferrer">About Us</a>
       </li>
     </ul>
   </nav>

@@ -8,19 +8,17 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 exports.config = {
-  tests: 'e2e/**/*.spec.js',
+  tests: 'e2e/**/*.test.js',
   output: 'e2e/outputs',
   helpers: {
-    Puppeteer: {
-      url: 'http://localhost:8080/',
+    Playwright: {
+      browser: 'chromium',
+      url: 'http://localhost:3030',
       show: true,
-      windowSize: '1200x900'
-    }
+    },
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
   },
-  bootstrap: null,
-  mocha: {},
-  name: 'resto-app-testing'
-}
+  name: 'restaurant-apps-testing',
+};
