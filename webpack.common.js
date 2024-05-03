@@ -1,12 +1,16 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/scripts/index.js'),
+  entry: {
+    app: path.resolve(__dirname, 'src/scripts/index.js'),
+  },
   output: {
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    clean: true,
   },
   module: {
     rules: [
@@ -30,15 +34,17 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         use: [
-            'file-loader',
+          'file-loader',
         ],
       },
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
+
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: 'index.html',
+      template: path.resolve(__dirname, 'src/templates/index.html'),
       favicon: path.resolve(__dirname, 'src/public/images/logo-brand.png'),
     }),
     new CopyWebpackPlugin({

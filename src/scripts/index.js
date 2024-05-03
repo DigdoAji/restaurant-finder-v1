@@ -1,17 +1,26 @@
 import 'regenerator-runtime';
+
+// Components
+import '../components/nav-web.js';
+import '../components/hero-web.js';
+import '../components/foot-web.js';
+
+// Styles
 import '../styles/main.scss';
 import '../styles/responsive.scss';
+
+// Data
 import data from '../data/DATA.json';
 import fact from '../data/FACT.json';
 
 // Navbar
-const hamburgerIcon = document.querySelector(".menuHamburger");
-const navItem = document.querySelector(".nav-bar");
+const hamburgerIcon = document.querySelector('.menuHamburger');
+const navItem = document.querySelector('.nav-bar');
 
 
-hamburgerIcon.addEventListener("click", event => {
-  hamburgerIcon.classList.toggle("active");
-  navItem.classList.toggle("active");
+hamburgerIcon.addEventListener('click', event => {
+  hamburgerIcon.classList.toggle('active');
+  navItem.classList.toggle('active');
   event.stopPropagation();
 });
 
@@ -32,19 +41,21 @@ data.restaurants.forEach((resto) => {
             <h1 class="resto-item__title">
                 <a href="#">${resto.name}</a>
             </h1>
-            <div class="resto-rating">
-                <img
-                    class="star-rating-resto"
-                    src="../images/star-rating.svg"
-                    alt="rating bintang"
-                />
-                <h2>${resto.rating}</h2>
+            <div class="resto-item__rating">
+                <div class="resto-rating">
+                    <img
+                        class="star-rating-resto"
+                        src="../images/star-rating.svg"
+                        alt="rating bintang"
+                    />
+                    <h2>${resto.rating}</h2>
+                </div>
             </div>
             <p class="resto-item__description">${resto.description}</p>
         </div>
     </article>
     `;
-    document.querySelector(".posts-explore").innerHTML = exploreResto;
+    document.querySelector('.posts-explore').innerHTML = exploreResto;
 });
 
 // Food Fact Content
@@ -63,19 +74,14 @@ fact.funfacts.forEach((item) => {
             <h1 class="fact-item__title">${item.name}</h1>
             <p class="fact-item__date">
                 Publish Date ${item.date} By
-                <a href="#" class="fact-item__date__author">${item.publisher}</a>
+                <a href="${item.urlprofile}" class="fact-item__date__author" target="_blank" rel="noreferrer">${item.publisher}</a>
             </p>
             <p class="fact-item__description">${item.description}</p>
             <p class="card-item__readmore">
-                <a href="#" class="btn-readArticle">Read More</a>
+                <a href="${item.urlfact}" target="_blank" rel="noreferrer">Read More</a>
             </p>
         </div>
     </article>
     `;
-    document.querySelector(".posts-fact").innerHTML = foodFact;
+    document.querySelector('.posts-fact').innerHTML = foodFact;
 });
-
-// Read more Read Less
-const desc = document.querySelector(".fact-item__description")
-const btnRead = document.querySelector(".btn-readArticle");
-
