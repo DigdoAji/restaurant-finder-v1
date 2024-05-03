@@ -1,61 +1,79 @@
 import CONFIG from '../../global/config';
 
 const createRestoDetailTemplate = (restaurant) => `
+  <div class="detail__resto">
+    <img
+      class="detail__poster"
+      src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}"
+      alt="Restaurant ${restaurant.name}"
+    />
+    <div class="detail__info">
+      <div class="name">  
+        <i title="restaurant" class="fa fa-store"></i>
+        <span>${restaurant.name}</span>
+      </div>
+      <div class="address">
+        <i title="address" class="fa fa-map-marker-alt"></i>
+        <span>${restaurant.address}, ${restaurant.city}</span>
+      </div>
+      <div class="rating">
+        <div class="resto-rating">
           <img
-            class="detail__poster"
-            src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}"
-            alt="Restaurant ${restaurant.name}"
+            class="star-rating-resto"
+            src="../icons/star-rating.svg"
+            alt="rating bintang"
           />
-          <div class="detail__title">
-            <h2 tabindex="0">${restaurant.name}</h2>
-          </div>
-          <div class="split-info">
-            <div class="detail__info">
-              <h4>Lokasi</h4>
-              <p>Kota ${restaurant.city}</p>
-              <h4>Alamat</h4>
-              <p>${restaurant.address}</p>
-              <h4>Rating</h4>
-              <div class="resto-rating">
-                <img
-                  class="star-rating-resto"
-                  src="../images/star-rating.svg"
-                  alt="rating bintang"
-                />
-                <h2>${restaurant.rating}</h2>
-              </div>
-            </div>
-            <div class="detail__info">
-              <h4>Kategori</h4>
-              <p>${restaurant.categories.map((category) => `${category.name}`).join(', ')}</p>
-              <h4>Makanan</h4>
-              <p>${restaurant.menus.foods.map((food) => `${food.name}`).join(', ')}</p>
-              <h4>Minuman</h4>
-              <p>${restaurant.menus.drinks.map((drink) => `${drink.name}`).join(', ')}</p>
-            </div>
-          </div>
-          <div class="detail__overview">
-            <h3>Overview</h3>
-            <p>
-              ${restaurant.description}
-            </p>
-          </div>
-          <div id="favoriteButtonContainer"></div>
+          <h2>${restaurant.rating}</h2>
+        </div>
+      </div>
+      <div class="category">
+        <p><strong>Categories:</strong></p>
+        ${restaurant.categories.map((category) => `<span>${category.name}</span>`).join(' ')}
+      </div>
+      <div class="favorite">
+        <div id="favoriteButtonContainer"></div>
+      </div>
+    </div>
+  </div>
 
+    <div class="detail__description">
+      <h3>Overview</h3>
+      <p>${restaurant.description}</p>
+    </div>
+
+    <div class="detail__menu">
+      <h3>Menu</h3>
+      <div class="menu__list">
+        <div>
+          <h4>Foods</h4>
+          <ul>
+            ${restaurant.menus.foods.map((food) => `<li>${food.name}</li>`).join('')}
+          </ul>
+        </div>
+        <div>
+          <h4>Drinks</h4>
+          <ul>
+            ${restaurant.menus.drinks.map((drink) => `<li>${drink.name}</li>`).join('')}
+          </ul>
+        </div>  
+      </div>
+    </div>
+
+    <div class="detail__reviews">
       <div class="heading">
         <h1 class="heading-label">Customer Review</h1>
         <p class="heading-text">What your review about "${restaurant.name}" ?</p>
 
         <form>
-            <div class="form-row">
-              <h2>Name</h2>
-              <input id="inputName" name="inputName" type="text" class="input-text" placeholder="Write your name">
-            </div>
-            <div class="form-row">
-              <h2>Review</h2>
-              <textarea id="inputReview" name="inputReview" type="text" class="input-text textarea" placeholder="Write your review about restaurant"></textarea>
-            </div>
-            <button id="submitReview" type="submit" class="btn-review">Send Review</button>
+          <div class="form-row">
+            <h2>Name</h2>
+            <input id="inputName" name="inputName" type="text" class="input-text" placeholder="Write your name">
+          </div>
+          <div class="form-row">
+            <h2>Review</h2>
+            <textarea id="inputReview" name="inputReview" type="text" class="input-text textarea" placeholder="Write your review about restaurant"></textarea>
+          </div>
+          <button id="submitReview" type="submit">Send Review</button>
         </form>
 
         <p class="heading-text">What their reviews about "${restaurant.name}" ?</p>
@@ -70,7 +88,7 @@ const createRestoDetailTemplate = (restaurant) => `
                   alt="avatar profile reviewer"
                 />
                 <div class="comment-item__title">
-                  <h1 tabindex="0">${comment.name}</h1>
+                  <h1>${comment.name}</h1>
                   <p>Tanggal Review: ${comment.date}</p>
                 </div>
               </div>
@@ -80,17 +98,18 @@ const createRestoDetailTemplate = (restaurant) => `
           `).join('')}
         </div>
       </div>
+    </div>
       `;
 
 const createFavoritesButtonTemplate = () => `
-      <button class="btn-like" aria-label="favorite this resto" id="FavButton">
-        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Favorite
+      <button aria-label="favorite this resto" id="FavButton">
+        <i class="far fa-heart" aria-hidden="true"></i>Favorite
       </button>
     `;
 
 const createUnFavoritesButtonTemplate = () => `
-      <button class="btn-like" aria-label="unfavorite this resto" id="FavButton">
-        <i class="fa fa-thumbs-up" aria-hidden="true"></i>Unfavorite
+      <button aria-label="unfavorite this resto" id="FavButton">
+        <i class="fas fa-heart" aria-hidden="true"></i>Unfavorite
       </button>
     `;
 
@@ -108,13 +127,15 @@ const createRestoItemTemplate = (restaurant) => `
             <h1 class="resto-item__title">
                 <a href="${`/#/detail/${restaurant.id}`}"">${restaurant.name}</a>
             </h1>
-            <div class="resto-rating">
-                <img
+            <div class="resto-item__rating">
+              <div class="resto-rating">
+                  <img
                     class="star-rating-resto"
-                    src="../images/star-rating.svg"
+                    src="../icons/star-rating.svg"
                     alt="rating bintang"
-                />
-                <h2>${restaurant.rating}</h2>
+                  />
+                  <h2>${restaurant.rating}</h2>
+              </div>
             </div>
             <p class="resto-item__description">${restaurant.description}</p>
         </div>
@@ -127,25 +148,34 @@ const createFactItemTemplate = (foodfact) => `
       <img
           class="card-item__thumbnail"
           src="${foodfact.imageURL}"
-          alt="Gambar ilustrasi makanan"
+          alt="ilustrasi makanan"
       />
   </div>
   <div class="card-item__content">
       <h1 class="fact-item__title">${foodfact.name}</h1>
       <p class="fact-item__date">
           Publish Date ${foodfact.date} By
-          <a href="#" class="fact-item__date__author">${foodfact.publisher}</a>
+          <a href="${foodfact.urlprofile}" class="fact-item__date__author" target="_blank" rel="noreferrer">${foodfact.publisher}</a>
       </p>
       <p class="fact-item__description">${foodfact.description}</p>
       <p class="card-item__readmore">
-          <a href="#" class="btn-readArticle">Read More</a>
+          <a href="${foodfact.urlfact}" target="_blank" rel="noreferrer">Read More</a>
       </p>
   </div>
 </article>
   `;
 
 const createLoadingText = () => `
-  <h2>Loading Data......</h2>
+    <div class="lds-dual-ring"></div>
+    <h3 class="load-process">Loading API Data. Please Wait.....</h3>
+`;
+
+const createAfterLoadingText = (err) => `
+    <div class="load-error">
+      <i class="fas fa-exclamation-triangle"></i>
+      <h3>API ERROR</h3>
+      <h3>Error: "${err}", Try to refresh the page!</h3>
+    </div>
 `;
 
 export {
@@ -155,4 +185,5 @@ export {
   createFavoritesButtonTemplate,
   createUnFavoritesButtonTemplate,
   createLoadingText,
+  createAfterLoadingText,
 };

@@ -1,8 +1,9 @@
 {
+    "id": "restaurant-pwa-1",
     "name": "Restaurant Finder Lite",
-    "short_name": "Movie Lite",
+    "short_name": "Resto Finder Lite",
     "description": "Find Your Best or Favorites Restaurant Nearby",
-    "start_url": "/index.html",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#035397",

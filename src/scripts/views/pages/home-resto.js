@@ -1,6 +1,11 @@
 import RestaurantAPISource from '../../data/restaurantAPI-source';
 import fact from '../../data/FACT.json';
-import { createRestoItemTemplate, createFactItemTemplate, createLoadingText } from '../templates/template-creator';
+import {
+  createRestoItemTemplate,
+  createFactItemTemplate,
+  createLoadingText,
+  createAfterLoadingText,
+} from '../templates/template-creator';
 
 const homeResto = {
   async render() {
@@ -32,12 +37,12 @@ const homeResto = {
 
     try {
       const exploreResto = await RestaurantAPISource.homeResto();
+      loadingContainer.setAttribute('style', 'display: none;');
       exploreResto.forEach((restaurant) => {
         exploreContainer.innerHTML += createRestoItemTemplate(restaurant);
       });
-      loadingContainer.style.display = 'none';
     } catch (err) {
-      loadingContainer.innerHTML = `<h2>Error: ${err}, Try to refresh the page!<h2>`;
+      loadingContainer.innerHTML = createAfterLoadingText(err);
     }
 
     const factResto = await fact.funfacts;

@@ -1,9 +1,10 @@
 import 'regenerator-runtime';
-import './component/nav-web';
-import './component/hero-web';
-import './component/foot-web';
+import './components/nav-web';
+import './components/hero-web';
+import './components/foot-web';
 import '../styles/main.scss';
 import '../styles/responsive.scss';
+
 import App from './views/app';
 import swRegister from './utils/sw-register';
 
